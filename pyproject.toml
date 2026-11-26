@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "winq"
+version = "0.9.0"
+description = "QLab-style audio cue playback for Windows"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "PySide6>=6.7",
+    "sounddevice>=0.4.7",
+    "soundfile>=0.12.1",   # bundles libsndfile >= 1.1 (MP3 support)
+    "soxr>=0.3.7",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-qt>=4.4",
+    "ruff>=0.6",
+    "pyinstaller>=6.6",
+]
+
+[project.gui-scripts]
+winq = "winq.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+winq = ["ui/*.qss", "ui/*.svg"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+qt_api = "pyside6"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]

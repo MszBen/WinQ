@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<!-- WinQ logo. The original used paint-order="stroke" on the triangle; Qt's SVG renderer
+     ignores that, so the green outline is drawn as its own path underneath instead. -->
+<rect width="64" height="64" rx="14" fill="#2e7d32"/>
+<circle cx="29" cy="29" r="16" fill="none" stroke="#d8dbe0" stroke-width="9"/>
+<path d="M36 36V58L57 47Z" fill="#2e7d32" stroke="#2e7d32" stroke-width="5" stroke-linejoin="round"/>
+<path d="M36 36V58L57 47Z" fill="#e0a33a"/>
+</svg>

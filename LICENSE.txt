@@ -1,0 +1,42 @@
+WinQ - Software Licence
+Copyright (c) 2026 Benedek Miko-Szabo and other contributors.
+All rights reserved.
+
+1. Permission to use. You may install and use the WinQ program (the "Software"),
+   free of charge, on any number of computers, for any purpose, including
+   commercial productions and live performances.
+
+2. Restrictions. Except as expressly permitted in writing by the copyright
+   holders, you may not:
+   a) copy, modify, translate, adapt or create derivative works of the
+      Software's source code;
+   b) redistribute, sell, sublicense, rent or publish the Software or its source
+      code, in whole or in part;
+   c) reverse engineer, decompile or disassemble the Software, except to the
+      extent that applicable law expressly permits it despite this restriction.
+
+3. Third-party components. The Software includes components owned by third
+   parties and licensed under their own terms (for example Qt / PySide6 under
+   the GNU LGPL). Those terms, listed in THIRD_PARTY_NOTICES.txt and the
+   "licenses" folder, apply to those components and take precedence over this
+   licence for them. Nothing in this licence restricts the rights those licences
+   grant you, including your right to replace the LGPL libraries with your own
+   modified versions.
+
+4. Your content. Show files and audio you create or use with the Software
+   remain yours.
+
+5. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+   YOU ARE RESPONSIBLE FOR TESTING THE SOFTWARE WITH YOUR SHOW AND EQUIPMENT
+   BEFORE RELYING ON IT IN A PERFORMANCE.
+
+6. Limitation of liability. TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT
+   SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF OR OTHER DEALINGS IN
+   THE SOFTWARE, INCLUDING ANY INTERRUPTED OR FAILED PERFORMANCE.
+
+7. Termination. This licence ends automatically if you break its terms. You
+   must then stop using the Software and delete all copies.

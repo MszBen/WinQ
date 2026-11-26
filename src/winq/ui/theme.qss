@@ -1,0 +1,436 @@
+/* WinQ theme: "the blue-lit booth".
+
+   Sound operators work under blue-gelled worklights so nothing spills onto the
+   stage. Surfaces are graded navy and stay dim; only the GO lamp and the
+   standing-by row are bright. Colour means state, never decoration.
+
+   Tokens (mirrored in ui/tokens.py for painted widgets):
+     booth-0 #0d1119  fields, waveform, meters, status bar
+     booth-1 #131824  window
+     booth-2 #181e2c  panels
+     booth-3 #212839  raised: rows, headers, tabs
+     line    #2c3449
+     text    #dde2ee   muted #8a93ab   dim #586079
+     lamp    #3cc46a  playing / GO        amber #f0a830  loop, fades, Show mode
+     stop    #e5484d  stop / end / missing cyan #3fc4d4  waiting / preview
+     standby #34418f  the standing-by row
+
+   Type: Segoe UI for reading; Bahnschrift (Windows' DIN face) for anything read
+   at a glance: GO, the standby readout, numbers and times. */
+
+QWidget {
+    background-color: #131824;
+    color: #dde2ee;
+    font-family: "Segoe UI";
+    font-size: 10pt;
+}
+
+QToolTip {
+    background-color: #212839;
+    color: #dde2ee;
+    border: 1px solid #2c3449;
+    padding: 4px 6px;
+}
+
+QMainWindow::separator,
+QSplitter::handle {
+    background-color: #131824;
+}
+
+QSplitter::handle:horizontal { width: 6px; }
+QSplitter::handle:vertical { height: 6px; }
+QSplitter::handle:hover { background-color: #2c3449; }
+
+QStatusBar {
+    background-color: #0d1119;
+    color: #8a93ab;
+}
+
+QStatusBar QLabel { background: transparent; color: #8a93ab; }
+
+QMenuBar {
+    background-color: #0d1119;
+    color: #b7bed0;
+}
+
+QMenuBar::item { padding: 4px 10px; background: transparent; }
+
+QMenuBar::item:selected,
+QMenu::item:selected {
+    background-color: #34418f;
+    color: #ffffff;
+}
+
+QMenu {
+    background-color: #181e2c;
+    border: 1px solid #2c3449;
+    padding: 4px 0;
+}
+
+QMenu::item { padding: 5px 24px 5px 20px; }
+QMenu::separator { height: 1px; background: #2c3449; margin: 4px 8px; }
+QMenu::item:disabled { color: #586079; }
+
+QScrollBar:vertical, QScrollBar:horizontal {
+    background: transparent;
+    border: none;
+    width: 10px;
+    height: 10px;
+}
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    background-color: #2c3449;
+    border-radius: 4px;
+    min-height: 24px;
+    min-width: 24px;
+    margin: 1px;
+}
+QScrollBar::handle:hover { background-color: #3a4560; }
+QScrollBar::add-line, QScrollBar::sub-line { width: 0; height: 0; }
+QScrollBar::add-page, QScrollBar::sub-page { background: transparent; }
+
+/* ---- Cue list ---------------------------------------------------------- */
+QTableView#cueTable {
+    background-color: #181e2c;
+    alternate-background-color: #1b2231;
+    border: 1px solid #2c3449;
+    border-radius: 4px;
+    gridline-color: #2c3449;
+    selection-background-color: #34418f;
+    selection-color: #ffffff;
+    font-size: 11pt;
+    outline: 0;
+}
+
+QTableView#cueTable::item { padding: 0 4px; border: none; }
+
+/* The standing-by row: indigo fill with a lit rule above and below. */
+QTableView#cueTable::item:selected {
+    background-color: #34418f;
+    color: #ffffff;
+    border-top: 1px solid #7c8cf0;
+    border-bottom: 1px solid #7c8cf0;
+}
+
+QTableView#cueTable QLineEdit {
+    background-color: #0d1119;
+    border: 1px solid #7c8cf0;
+    border-radius: 0;
+}
+
+QHeaderView { background-color: #181e2c; }
+
+QHeaderView::section {
+    background-color: #181e2c;
+    color: #8a93ab;
+    border: none;
+    border-bottom: 1px solid #2c3449;
+    padding: 5px 6px;
+    font-weight: 600;
+    font-size: 9pt;
+}
+
+QTableCornerButton::section { background-color: #181e2c; border: none; }
+
+/* ---- Transport bar ----------------------------------------------------- */
+QFrame#transportBar {
+    background-color: #181e2c;
+    border: 1px solid #2c3449;
+    border-radius: 4px;
+}
+
+QFrame#transportBar QLabel {
+    background: transparent;
+}
+
+/* GO: flat matte green, deeper than the playing-state lamp so it doesn't glare. */
+QPushButton#goButton {
+    background-color: #2a8f4c;
+    color: #eefaf2;
+    border: 1px solid #237a41;
+    border-radius: 8px;
+    font-family: "Bahnschrift SemiBold SemiCondensed";
+    font-size: 30pt;
+    min-width: 150px;
+    min-height: 72px;
+    padding-bottom: 2px;
+}
+
+QPushButton#goButton:hover { background-color: #30a056; }
+
+QPushButton#goButton:pressed {
+    background-color: #1f6f3b;
+    padding-top: 3px;
+}
+
+QPushButton#panicButton {
+    background-color: #2a1a22;
+    color: #ff8a8d;
+    border: 1px solid #e5484d;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 9px 18px;
+}
+
+QPushButton#panicButton:hover { background-color: #e5484d; color: #ffffff; }
+QPushButton#panicButton:pressed { background-color: #b8343a; color: #ffffff; }
+
+QLabel#standbyCaption {
+    color: #8a93ab;
+    font-size: 9pt;
+}
+
+QLabel#standbyLabel {
+    font-family: "Bahnschrift SemiBold SemiCondensed";
+    font-size: 20pt;
+    color: #ffffff;
+}
+
+QLabel#standbyHint { color: #8a93ab; }
+QLabel#standbyHint[looping="true"] { color: #f0a830; font-weight: 600; }
+QLabel#standbyHint[notes="true"] { color: #c9d0e0; font-style: italic; }
+QLabel#warningLabel { color: #ff8a8d; font-weight: 600; }
+
+QPushButton#modeButton {
+    background-color: #212839;
+    color: #b7bed0;
+    border: 1px solid #2c3449;
+    border-radius: 6px;
+    font-family: "Bahnschrift SemiBold";
+    font-size: 10pt;
+    padding: 9px 14px;
+    min-width: 56px;
+}
+QPushButton#modeButton:hover { border-color: #586079; }
+QPushButton#modeButton:checked {
+    background-color: #f0a830;
+    color: #1d1404;
+    border-color: #f0a830;
+}
+
+/* Show mode: the whole bar is ringed in sodium amber. */
+QFrame#transportBar[showMode="true"] {
+    border: 2px solid #f0a830;
+    background-color: #1c1d24;
+}
+
+/* ---- Active cues panel ------------------------------------------------- */
+QFrame#activePanel {
+    background-color: #181e2c;
+    border: 1px solid #2c3449;
+    border-radius: 4px;
+}
+
+QFrame#activePanel QScrollArea,
+QFrame#activePanel QScrollArea > QWidget > QWidget {
+    background: transparent;
+}
+
+QLabel#panelTitle {
+    color: #8a93ab;
+    font-size: 9pt;
+    font-weight: 600;
+    background: transparent;
+}
+
+QLabel#panelEmpty { color: #586079; background: transparent; }
+
+/* Same look as QHeaderView::section, so the Active Cues title lines up with the cue list header. */
+QLabel#activeTitle {
+    color: #8a93ab;
+    font-size: 9pt;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #2c3449;
+    padding: 5px 8px;
+}
+
+QFrame#activeRow {
+    background-color: #212839;
+    border-left: 3px solid #3cc46a;
+    border-radius: 2px;
+}
+
+QFrame#activeRow[state="looping"] { border-left-color: #f0a830; }
+QFrame#activeRow[state="stopping"] { border-left-color: #586079; }
+QFrame#activeRow[state="stopping"] QLabel#activeName { color: #8a93ab; }
+QFrame#activeRow[state="waiting"] { border-left-color: #3fc4d4; background-color: #1b2231; }
+QFrame#activeRow[state="waiting"] QLabel#activeName { color: #8a93ab; font-weight: 400; }
+QFrame#activeRow QLabel { background: transparent; }
+QLabel#activeOrder { color: #586079; min-width: 18px; }
+QLabel#activeName { font-weight: 600; }
+QLabel#activeTime { color: #dde2ee; min-width: 64px; font-size: 11pt; }
+
+QFrame#activeRow QProgressBar {
+    background-color: #0d1119;
+    border: none;
+    border-radius: 2px;
+}
+
+QFrame#activeRow QProgressBar::chunk {
+    background-color: #3cc46a;
+    border-radius: 2px;
+}
+
+QFrame#activeRow[state="looping"] QProgressBar::chunk { background-color: #f0a830; }
+QFrame#activeRow[state="stopping"] QProgressBar::chunk { background-color: #586079; }
+
+QToolButton#activeStop {
+    background-color: transparent;
+    color: #8a93ab;
+    border: 1px solid #2c3449;
+    border-radius: 4px;
+    min-width: 26px;
+    min-height: 22px;
+}
+
+QToolButton#activeStop:hover { background-color: #e5484d; border-color: #e5484d; color: #ffffff; }
+
+QLabel#panelPlaceholder {
+    background-color: #181e2c;
+    border: 1px dashed #2c3449;
+    border-radius: 4px;
+    color: #586079;
+}
+
+/* ---- Inspector --------------------------------------------------------- */
+QTabWidget#inspector::pane {
+    background-color: #181e2c;
+    border: 1px solid #2c3449;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    top: -1px;
+}
+
+QTabBar::tab {
+    background-color: transparent;
+    color: #8a93ab;
+    border: 1px solid transparent;
+    border-bottom: none;
+    padding: 6px 16px;
+    margin-right: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+QTabBar::tab:hover { color: #dde2ee; }
+
+QTabBar::tab:selected {
+    background-color: #181e2c;
+    color: #ffffff;
+    border-color: #2c3449;
+    border-top: 2px solid #7c8cf0;
+}
+
+QTabWidget#inspector QWidget { background-color: #181e2c; }
+
+QLineEdit, QPlainTextEdit, QDoubleSpinBox, QSpinBox, QComboBox {
+    background-color: #0d1119;
+    border: 1px solid #2c3449;
+    border-radius: 4px;
+    padding: 3px 6px;
+    selection-background-color: #34418f;
+}
+
+QDoubleSpinBox, QSpinBox { font-family: "Bahnschrift"; font-size: 10.5pt; }
+
+QLineEdit:hover, QPlainTextEdit:hover, QDoubleSpinBox:hover, QSpinBox:hover,
+QComboBox:hover { border-color: #3a4560; }
+
+QLineEdit:focus, QPlainTextEdit:focus, QDoubleSpinBox:focus, QSpinBox:focus,
+QComboBox:focus { border-color: #7c8cf0; }
+
+QLabel#fileLabel { color: #8a93ab; }
+QLabel#fileLabel[missing="true"] { color: #ff8a8d; }
+
+QSlider::groove:horizontal {
+    height: 4px;
+    background-color: #0d1119;
+    border: 1px solid #2c3449;
+    border-radius: 2px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: #7c8cf0;
+    border-radius: 2px;
+}
+
+/* A fader cap: a short, wide grip rather than a round web slider knob. */
+QSlider::handle:horizontal {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #c9cfdd, stop:0.45 #c9cfdd, stop:0.5 #586079, stop:0.55 #c9cfdd, stop:1 #c9cfdd);
+    border: 1px solid #0d1119;
+    width: 12px;
+    margin: -8px 0;
+    border-radius: 2px;
+}
+
+QSlider::handle:horizontal:hover { background-color: #ffffff; }
+
+QFrame#transportBar QSlider {
+    background: transparent;
+}
+
+/* ---- Time & Loops ------------------------------------------------------ */
+QSpinBox:disabled, QDoubleSpinBox:disabled { color: #586079; }
+
+QTabWidget#inspector QPushButton#previewButton {
+    background-color: transparent;
+    color: #3fc4d4;
+    border: 1px solid #3fc4d4;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-weight: 600;
+}
+
+QTabWidget#inspector QPushButton#previewButton:hover { background-color: #15333b; }
+QTabWidget#inspector QPushButton#previewButton:checked { background-color: #3fc4d4; color: #0d1119; }
+QTabWidget#inspector QPushButton#previewButton:disabled { border-color: #2c3449; color: #586079; }
+
+QPushButton {
+    background-color: #212839;
+    color: #dde2ee;
+    border: 1px solid #2c3449;
+    border-radius: 4px;
+    padding: 5px 12px;
+}
+QPushButton:hover { border-color: #586079; }
+QPushButton:pressed { background-color: #181e2c; }
+QPushButton:disabled { color: #586079; }
+
+QCheckBox { spacing: 6px; }
+QCheckBox::indicator {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #586079;
+    border-radius: 3px;
+    background-color: #0d1119;
+}
+QCheckBox::indicator:checked { background-color: #f0a830; border-color: #f0a830; }
+
+/* Spin boxes: no arrow buttons (type, scroll, or use the slider). Hidden HERE rather
+   than with setButtonSymbols(NoButtons): with this stylesheet, NoButtons collapses the
+   text field to 1 px and the value becomes invisible. */
+QAbstractSpinBox::up-button,
+QAbstractSpinBox::down-button {
+    width: 0px;
+    border: none;
+}
+
+QComboBox { padding: 3px 8px; }
+QComboBox::drop-down { border: none; width: 18px; }
+QComboBox QAbstractItemView {
+    background-color: #181e2c;
+    border: 1px solid #2c3449;
+    selection-background-color: #34418f;
+}
+
+/* Locked (Show mode) / disabled fields must look locked. */
+QLineEdit:disabled, QPlainTextEdit:disabled, QComboBox:disabled {
+    color: #586079;
+    border-color: #1f2638;
+    background-color: #131824;
+}
+QLabel:disabled, QCheckBox:disabled { color: #586079; }
+
+QDialog { background-color: #181e2c; }
