@@ -1,0 +1,50 @@
+WinQ - Third-party software notices
+===================================
+
+WinQ includes the open-source components below. Each is the property of its
+authors and is used under its own licence; full texts are in the "licenses"
+folder next to this file. They are NOT covered by WinQ's own licence
+(LICENSE.txt).
+
+Qt 6 and PySide6 / Shiboken6 (The Qt Company Ltd.)
+  Licence: GNU Lesser General Public License v3 (licenses/LGPL-3.0.txt, which
+  builds on licenses/GPL-3.0.txt).
+  WinQ uses these libraries unmodified, as separate DLLs/modules in the
+  "_internal" folder (Qt6*.dll, PySide6\, shiboken6\). You may replace them
+  with your own compatible builds. Source code: https://download.qt.io/ and
+  https://code.qt.io/  (PySide6: https://wiki.qt.io/Qt_for_Python)
+
+libsndfile (Erik de Castro Lopo and contributors), bundled via soundfile
+  Licence: GNU LGPL v2.1 (licenses/LGPL-2.1.txt). Unmodified, as
+  _internal\_soundfile_data\libsndfile_x64.dll, which you may replace.
+  Source: https://github.com/libsndfile/libsndfile
+  This build of libsndfile includes the codecs it is distributed with
+  (FLAC, Ogg, Vorbis, Opus: BSD-style; mpg123 and LAME: LGPL).
+
+python-soxr and libsoxr (Myungchul Keum; Rob Sykes)
+  Licence: GNU LGPL v2.1 or later (licenses/python-soxr.txt,
+  licenses/libsoxr.txt, licenses/LGPL-2.1.txt); PFFFT: BSD-style
+  (licenses/PFFFT.txt). Source: https://github.com/dofuuz/python-soxr
+
+PortAudio (Ross Bencina, Phil Burk), bundled via sounddevice
+  Licence: MIT-style. http://www.portaudio.com/license.html
+
+python-sounddevice (Matthias Geier)
+  Licence: MIT (licenses/sounddevice.txt)
+
+python-soundfile (Bastian Bechtold, Matthias Geier)
+  Licence: BSD 3-Clause (licenses/soundfile.txt)
+
+NumPy (NumPy Developers)
+  Licence: BSD 3-Clause and others (licenses/NumPy.txt)
+
+CFFI (Armin Rigo, Maciej Fijalkowski)
+  Licence: MIT (licenses/cffi.txt)
+
+Python 3.12 runtime (Python Software Foundation)
+  Licence: PSF License Agreement and others, including OpenSSL (Apache 2.0),
+  libffi (MIT) and the Microsoft C runtime (licenses/Python.txt).
+
+PyInstaller bootloader
+  Licence: GPL v2 or later with an exception that allows distributing programs
+  built with it under any licence. https://pyinstaller.org/en/stable/license.html
